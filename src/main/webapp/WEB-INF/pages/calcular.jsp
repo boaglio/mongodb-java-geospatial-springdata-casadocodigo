@@ -2,11 +2,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ page import="java.util.*" %>
+<%@ page import="com.boaglio.casadocodigo.mongodb.util.*" %>
 
 <html>
  <head>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -42,6 +44,19 @@
      </a>
     </div>
 
+    <div class="col-md-2">
+     <span class="label label-info"> Cidades pr&oacute;ximas</span>
+    <ul class="list-group">
+     <c:forEach var="cidadeProxima" items="${cidadesProximas}">
+     <li class="list-group-item">
+      <a href="http://maps.google.com/?q=<c:out value="${cidadeProxima.loc.y}" />,-<c:out value="${cidadeProxima.loc.x}" />" target="_BLANK">
+        <c:out value="${cidadeProxima.city}" />-<c:out value="${cidadeProxima.state}" />
+      </a>
+      </li>
+     </c:forEach>
+    </ul>
+    </div>
+
    </div>
    <br/><br/>
    <div class="row">
@@ -51,7 +66,6 @@
     <form action="home">
      <input class="btn btn-primary btn-lg" type="submit" value="voltar" />
     </form>
-
 
    </div>
 

@@ -28,26 +28,29 @@ public class ZipcodesController {
 
 	}
 
-	@RequestMapping(value = "/calcular",method = RequestMethod.GET)
+	@RequestMapping(value = "/calcular",method = RequestMethod.POST)
 	public String detalhe(@RequestParam("idCidadeOrigem") String idCidadeOrigem,@RequestParam("idCidadeDestino") String idCidadeDestino,ModelMap model) {
 
-		Zip zip1 = repository.findById(idCidadeOrigem);
-		System.out.println("cidade origem =" + zip1);
-		Zip zip2 = repository.findById(idCidadeDestino);
-		System.out.println("cidade destino =" + zip2);
+		Zip zipOrigem = repository.findById(idCidadeOrigem);
+		System.out.println("cidade origem =" + zipOrigem);
+		Zip zipDestino = repository.findById(idCidadeDestino);
+		System.out.println("cidade destino =" + zipDestino);
 
-		double distancia = CalculaDistancia.distance(zip1.getLoc().getX(),zip1.getLoc().getY(),zip2.getLoc().getX(),zip2.getLoc().getY());
+		double distancia = CalculaDistancia.distance(zipOrigem.getLoc().getX(),zipOrigem.getLoc().getY(),zipDestino.getLoc().getX(),zipDestino.getLoc().getY());
 		model.addAttribute("distancia",distancia);
 		System.out.println("distancia entre as duas =" + distancia);
 
-		model.addAttribute("cidadeOrigem",zip1.getCity() + " (" + zip1.getState() + ")");
-		model.addAttribute("cidadeDestino",zip2.getCity() + " (" + zip2.getState() + ")");
+		model.addAttribute("cidadeOrigem",zipOrigem.getCity() + " (" + zipOrigem.getState() + ")");
+		model.addAttribute("cidadeDestino",zipDestino.getCity() + " (" + zipDestino.getState() + ")");
 
-		model.addAttribute("latitudeOrigem",zip1.getLoc().getX());
-		model.addAttribute("longitudeOrigem",zip1.getLoc().getY());
+		model.addAttribute("latitudeOrigem",zipOrigem.getLoc().getX());
+		model.addAttribute("longitudeOrigem",zipOrigem.getLoc().getY());
 
-		model.addAttribute("latitudeDestino",zip2.getLoc().getX());
-		model.addAttribute("longitudeDestino",zip2.getLoc().getY());
+		model.addAttribute("latitudeDestino",zipDestino.getLoc().getX());
+		model.addAttribute("longitudeDestino",zipDestino.getLoc().getY());
+
+		List<Zip> cidadesProximas = repository.findCidadesProximas(zipDestino.getLoc().getX(),zipDestino.getLoc().getY());
+		model.addAttribute("cidadesProximas",cidadesProximas);
 
 		return "calcular";
 

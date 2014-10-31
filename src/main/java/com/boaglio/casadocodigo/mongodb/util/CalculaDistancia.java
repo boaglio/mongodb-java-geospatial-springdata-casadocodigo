@@ -6,6 +6,8 @@ package com.boaglio.casadocodigo.mongodb.util;
  */
 public class CalculaDistancia {
 
+	public static final Double KILOMETER = 111.0d;
+
 	public static double distance(double lon1,double lat1,double lon2,double lat2) {
 		double theta = lon1 - lon2;
 		double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
@@ -28,6 +30,10 @@ public class CalculaDistancia {
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	private static double rad2deg(double rad) {
 		return rad * 180 / Math.PI;
+	}
+
+	public static Double getInKilometer(Double maxdistance) {
+		return maxdistance / KILOMETER;
 	}
 
 	public static void main(String[] args) {
