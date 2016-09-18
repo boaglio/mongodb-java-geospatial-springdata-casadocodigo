@@ -9,13 +9,13 @@
 	<name>ZipCodes com Java + Spring Data</name>
 
 	<properties>
-	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	  <spring.version>3.2.8.RELEASE</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.3.2.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- dependencias do Spring 3 -->
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -37,36 +37,33 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- mongodb java driver -->
+		<!-- MongoDB Java driver -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>2.12.3</version>
+			<version>3.3.0</version>
 		</dependency>
 
-		<!-- Spring data mongodb -->
+		<!-- Spring Data MongoDB -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.5.4.RELEASE</version>
+			<version>1.9.2.RELEASE</version>
 		</dependency>
 
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2.2</version>
-		</dependency>
+		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-			<groupId>servletapi</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4-20040521</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -85,7 +82,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-				    <httpPort>8080</httpPort>
+					<httpPort>8080</httpPort>
 					<path>/</path>
 				</configuration>
 			</plugin>
