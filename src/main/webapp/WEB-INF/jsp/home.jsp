@@ -14,7 +14,7 @@
 
   <div class="row">
    <img src="${pageContext.request.contextPath}/resources/distancia.png" alt="logo" width="100"/>
-   <span class="alert alert-info">Dist&acirc;ncia entre cidades americanas</span>
+   <span class="alert alert-info">Dist&acirc;ncia entre cidades brasileiras</span>
   </div>
   <br/>
 
@@ -23,9 +23,9 @@
    <div class="form-group">
     <label for="sel1">Origem::</label>
     <select id="idCidadeOrigem" name="idCidadeOrigem" class="form-control">
-	  <c:forEach var="zip1" items="${zips}">
-	     <option value="<c:out value="${zip1.id}" />"<c:if test="${zip1.city=='MIAMI' && zip1.state=='FL' }">selected</c:if> >
-	      <c:out value="${zip1.city}" /> - <c:out value="${zip1.state}" />
+	  <c:forEach var="municipio1" items="${municipios}">
+	     <option value="<c:out value="${municipio1.id}" />"<c:if test="${municipio1.nome=='São Paulo' && municipio1.uf=='SP' }">selected</c:if> >
+	      <c:out value="${municipio1.nome}" /> - <c:out value="${municipio1.uf}" />
 	     </option>
 	  </c:forEach>
     </select>
@@ -34,9 +34,9 @@
    <div class="form-group">
     <label for="sel1">Destino:</label>
      <select name="idCidadeDestino" class="form-control">
-	  <c:forEach var="zip2" items="${zips}">
-	     <option value="<c:out value="${zip2.id}" />"<c:if test="${zip2.city=='ORLANDO' && zip2.state=='FL' }">selected</c:if> >
-	      <c:out value="${zip2.city}" /> - <c:out value="${zip2.state}" />
+	  <c:forEach var="municipio2" items="${municipios}">
+	     <option value="<c:out value="${municipio2.id}" />"<c:if test="${municipio2.nome=='Santa Isabel' && municipio2.uf=='SP' }">selected</c:if> >
+	      <c:out value="${municipio2.nome}" /> - <c:out value="${municipio2.uf}" />
 	     </option>
 	  </c:forEach>
      </select>

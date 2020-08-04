@@ -36,9 +36,4 @@ public class CalculaDistancia {
 		return maxdistance / KILOMETER;
 	}
 
-	public static void main(String[] args) {
-		System.out.println("Miami ate Orlando");
-		System.out.println(distance(80.441031,25.661502,81.408162,28.487102) + " Km");
-	}
-
 }

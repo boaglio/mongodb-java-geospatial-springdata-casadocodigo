@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"test.municipios"},{"v":{"$numberInt":"2"},"key":{"loc":"2d"},"name":"loc_2d","ns":"test.municipios"}],"uuid":"c0969f634a75400ab4e178791d218897","collectionName":"municipios"}

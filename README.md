@@ -1,29 +1,30 @@
 mongodb-java-geospatial-springdata-casadocodigo
-====================================
+===============================================
 
 MongoDB com Geospatial + Java com Spring Data  + Bootstrap
---------------------------------------------
+-----------------------------------------------------------
 
 * Database.....: *test*
-* Collection...: *zipcodes*
+* Collection...: *municipios*
 
 * Exemplo de documento
 
 ```
-db.zipcodes.findOne()
- 
+db.municipios.findOne()
 {
-    "_id" : ObjectId("544edc295e0a44b1d3da5d2a"),
-    "city" : "AARON",
-    "state" : "KY",
+    "_id" : 3500550.0,
+    "nome" : "Águas de Santa Bárbara",
+    "uf" : "SP",
+    "estado" : "São Paulo",
     "loc" : {
-        "x" : 85.19911399999999,
-        "y" : 36.812827
-    }
+        "x" : -49.2421,
+        "y" : -22.8812
+    },
+    "capital" : "N"
 }
 ```
 --------------------------------------------
 
 1. Restaure o banco do diretório DUMP
-2. Execute o script sobe-tomcat
+2. mvn spring-boot:run 
 3. Acesse a URL:  http://localhost:8080/
