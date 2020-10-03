@@ -29,19 +29,19 @@ public class MunicipioController {
 	}
 
 	@PostMapping("/calcular")
-	public String detalhe(@RequestParam("idCidadeOrigem") String idCidadeOrigem,@RequestParam("idCidadeDestino") String idCidadeDestino,ModelMap model) {
+	public String detalhe(@RequestParam("idMunicipioOrigem") String idMunicipioOrigem,@RequestParam("idMunicipioDestino") String idMunicipioDestino,ModelMap model) {
 
-		Municipio municipioOrigem = repository.findById(idCidadeOrigem);
-		System.out.println("cidade origem =" + municipioOrigem);
-		Municipio municipioDestino = repository.findById(idCidadeDestino);
-		System.out.println("cidade destino =" + municipioDestino);
+		Municipio municipioOrigem = repository.findById(idMunicipioOrigem);
+		System.out.println("municipio origem =" + municipioOrigem);
+		Municipio municipioDestino = repository.findById(idMunicipioDestino);
+		System.out.println("municipio destino =" + municipioDestino);
 
 		double distancia = CalculaDistancia.distance(municipioOrigem.getLoc().getX(),municipioOrigem.getLoc().getY(),municipioDestino.getLoc().getX(),municipioDestino.getLoc().getY());
 		model.addAttribute("distancia",distancia);
 		System.out.println("distancia entre as duas =" + distancia);
 
-		model.addAttribute("cidadeOrigem",municipioOrigem.getNome() + " (" + municipioOrigem.getEstado()+ ")");
-		model.addAttribute("cidadeDestino",municipioDestino.getNome() + " (" + municipioDestino.getEstado() + ")");
+		model.addAttribute("municipioOrigem",municipioOrigem.getNome() + " (" + municipioOrigem.getEstado()+ ")");
+		model.addAttribute("municipioDestino",municipioDestino.getNome() + " (" + municipioDestino.getEstado() + ")");
 
 		model.addAttribute("latitudeOrigem",municipioOrigem.getLoc().getX());
 		model.addAttribute("longitudeOrigem",municipioOrigem.getLoc().getY());
@@ -49,8 +49,8 @@ public class MunicipioController {
 		model.addAttribute("latitudeDestino",municipioDestino.getLoc().getX());
 		model.addAttribute("longitudeDestino",municipioDestino.getLoc().getY());
 
-		List<Municipio> cidadesProximas = repository.findCidadesProximas(municipioDestino.getLoc().getX(),municipioDestino.getLoc().getY());
-		model.addAttribute("cidadesProximas",cidadesProximas);
+		List<Municipio> municipiosProximos = repository.findMunicipiosProximos(municipioDestino.getLoc().getX(),municipioDestino.getLoc().getY());
+		model.addAttribute("municipiosProximos",municipiosProximos);
 
 		return "calcular";
 

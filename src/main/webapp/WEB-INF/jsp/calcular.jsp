@@ -17,7 +17,7 @@
 
    <div class="row">
     <img src="${pageContext.request.contextPath}/resources/distancia.png" alt="logo" width="100"/>
-     <span class="alert alert-info">Dist&acirc;ncia entre cidades brasileiras</span>
+     <span class="alert alert-info">Dist&acirc;ncia entre municipios brasileiros</span>
    </div>
 
   <br/><br/>
@@ -25,32 +25,32 @@
    <div class="row">
 
     <div class="col-md-5">
-     <span class="label label-info">Cidade origem</span>
+     <span class="label label-info">Munic&iacute;pio origem</span>
      <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
       src="https://maps.google.com/maps?q=<c:out value="${longitudeOrigem}" />,<c:out value="${latitudeOrigem}" />&amp;ie=UTF8&amp;ll=<c:out value="${longitudeOrigem}" />,<c:out value="${latitudeOrigem}" />&amp;spn=0.485245,0.87204&amp;t=m&amp;z=11&amp;output=embed"></iframe>
      <br/><br/>
      <a class="alert alert-info" href="http://maps.google.com/?q=<c:out value="${longitudeOrigem}" />,<c:out value="${latitudeOrigem}" />" target="_BLANK">
-      <c:out value="${cidadeOrigem}" />
+      <c:out value="${municipioOrigem}" />
      </a>
     </div>
 
     <div class="col-md-5">
-     <span class="label label-info">Cidade destino</span>
+     <span class="label label-info">Munic&iacute;pio destino</span>
      <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
       src="https://maps.google.com/maps?q=<c:out value="${longitudeDestino}" />,<c:out value="${latitudeDestino}" />&amp;ie=UTF8&amp;ll=<c:out value="${longitudeDestino}" />,<c:out value="${latitudeDestino}" />&amp;spn=0.485245,0.87204&amp;t=m&amp;z=11&amp;output=embed"></iframe>
      <br/><br/>
      <a class="alert alert-info" href="http://maps.google.com/?q=<c:out value="${longitudeDestino}" />,<c:out value="${latitudeDestino}" />" target="_BLANK">
-      <c:out value="${cidadeDestino}" />
+      <c:out value="${municipioDestino}" />
      </a>
     </div>
 
     <div class="col-md-2">
-     <span class="label label-info"> Cidades pr&oacute;ximas</span>
+     <span class="label label-info"> Munic&iacute;pios pr&oacute;ximos</span>
     <ul class="list-group">
-     <c:forEach var="cidadeProxima" items="${cidadesProximas}">
+     <c:forEach var="municipioProximo" items="${municipiosProximos}">
      <li class="list-group-item">
-      <a href="http://maps.google.com/?q=<c:out value="${cidadeProxima.loc.y}" />,<c:out value="${cidadeProxima.loc.x}" />" target="_BLANK">
-        <c:out value="${cidadeProxima.nome}" />-<c:out value="${cidadeProxima.uf}" />
+      <a href="http://maps.google.com/?q=<c:out value="${municipioProximo.loc.y}" />,<c:out value="${municipioProximo.loc.x}" />" target="_BLANK">
+        <c:out value="${municipioProximo.nome}" />-<c:out value="${municipioProximo.uf}" />
       </a>
       </li>
      </c:forEach>

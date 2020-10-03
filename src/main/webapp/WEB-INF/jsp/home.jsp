@@ -14,7 +14,7 @@
 
   <div class="row">
    <img src="${pageContext.request.contextPath}/resources/distancia.png" alt="logo" width="100"/>
-   <span class="alert alert-info">Dist&acirc;ncia entre cidades brasileiras</span>
+   <span class="alert alert-info">Dist&acirc;ncia entre munic&iacute;pio brasileiros</span>
   </div>
   <br/>
 
@@ -22,7 +22,7 @@
 
    <div class="form-group">
     <label for="sel1">Origem::</label>
-    <select id="idCidadeOrigem" name="idCidadeOrigem" class="form-control">
+    <select id="idMunicipioOrigem" name="idMunicipioOrigem" class="form-control">
 	  <c:forEach var="municipio1" items="${municipios}">
 	     <option value="<c:out value="${municipio1.id}" />"<c:if test="${municipio1.nome=='São Paulo' && municipio1.uf=='SP' }">selected</c:if> >
 	      <c:out value="${municipio1.nome}" /> - <c:out value="${municipio1.uf}" />
@@ -33,7 +33,7 @@
 
    <div class="form-group">
     <label for="sel1">Destino:</label>
-     <select name="idCidadeDestino" class="form-control">
+     <select name="idMunicipioDestino" class="form-control">
 	  <c:forEach var="municipio2" items="${municipios}">
 	     <option value="<c:out value="${municipio2.id}" />"<c:if test="${municipio2.nome=='Santa Isabel' && municipio2.uf=='SP' }">selected</c:if> >
 	      <c:out value="${municipio2.nome}" /> - <c:out value="${municipio2.uf}" />

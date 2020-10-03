@@ -18,7 +18,7 @@ import com.boaglio.casadocodigo.mongodb.util.CalculaDistancia;
 @Repository
 public class MunicipioRepository {
 
-	private static final int QT_CIDADES_PROXIMAS = 11;
+	private static final int QT_MUNICIPIOS_PROXIMOS = 11;
 
 	public static final Double RAIO_DE_DISTANCIA_EM_KM = 90.0d;
 
@@ -32,7 +32,7 @@ public class MunicipioRepository {
      	query.with(Sort.by(Sort.Direction.ASC,"nome"));
 		municipios = mongoTemplate.find(query,Municipio.class);
 		System.out.println("findAll="+query);
-		System.out.println("total de cidades = " + municipios.size());
+		System.out.println("total de municipios = " + municipios.size());
 		return municipios;
 	}
 
@@ -49,19 +49,19 @@ public class MunicipioRepository {
 		return municipio;
 	}
 
-	public List<Municipio> findCidadesProximas(Double x,Double y) {
+	public List<Municipio> findMunicipiosProximos(Double x,Double y) {
 
 		List<Municipio> municipios = new ArrayList<Municipio>();
 
 		Criteria criteria = new Criteria("loc").near(new Point(x,y)).maxDistance(CalculaDistancia.getInKilometer(RAIO_DE_DISTANCIA_EM_KM));
-		Query buscaCidades = new Query(criteria);
-		System.out.println("findCidadesProximas="+buscaCidades);
+		Query buscaMunicipios = new Query(criteria);
+		System.out.println("findMunicipiosProximos="+buscaMunicipios);
 		
-		municipios = mongoTemplate.find(buscaCidades.limit(QT_CIDADES_PROXIMAS),Municipio.class);
+		municipios = mongoTemplate.find(buscaMunicipios.limit(QT_MUNICIPIOS_PROXIMOS),Municipio.class);
 
 		municipios.remove(municipios.get(0));
 
-		System.out.println("total de cidades proximas = " + municipios.size());
+		System.out.println("total de municípios proximos = " + municipios.size());
 
 		return municipios;
 	}

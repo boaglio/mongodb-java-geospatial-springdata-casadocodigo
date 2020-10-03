@@ -27,4 +27,4 @@ db.municipios.findOne()
 
 1. Restaure o banco do diretório DUMP
 2. mvn spring-boot:run 
-3. Acesse a URL:  http://localhost:8080/
+3. Acesse a URL:  http://localhost:8080/home
