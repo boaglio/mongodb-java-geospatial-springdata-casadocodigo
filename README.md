@@ -28,3 +28,12 @@ db.municipios.findOne()
 1. Restaure o banco do diretório DUMP
 2. mvn spring-boot:run 
 3. Acesse a URL:  http://localhost:8080/home
+
+
+> ![Compre agora](https://github.com/boaglio/boaglio/blob/master/mongodb.png)
+>
+> :green_book: este repositório faz parte do livro *MongoDB*
+>
+> :face_with_head_bandage: [ajude o meu trabalho e compre uma cópia](https://www.casadocodigo.com.br/products/livro-mongodb)!
+>
+> custa menos que um :hamburger: lanche :fries:!
